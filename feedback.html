@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="向战地系列团队提交您的反馈和建议">
+    <title>用户反馈 - 战地系列</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/support.css">
+    <link rel="icon" href="images/ui/favicon.ico">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/ui/logo.png" alt="Battlefield Logo" onerror="this.style.display='none'">
+                    <span class="nav-title">BATTLEFIELD</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">首页</a></li>
+                    <li><a href="games.html" class="nav-link">游戏</a></li>
+                    <li><a href="news.html" class="nav-link">新闻</a></li>
+                    <li><a href="media.html" class="nav-link">媒体</a></li>
+                    <li><a href="#" class="nav-link">社区</a></li>
+                    <li><a href="admin/" class="nav-link admin-link">管理后台</a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="login.html" class="auth-link" id="loginLink">登录</a>
+                    <a href="register.html" class="auth-link" id="registerLink">注册</a>
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <span class="user-name" id="userName"></span>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="user-link">个人中心</a>
+                            <a href="#" class="user-link" onclick="Auth.logout()">退出登录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面标题 -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">用户反馈</h1>
+            <p class="page-subtitle">您的意见让游戏变得更好</p>
+        </div>
+    </section>
+
+    <!-- 反馈介绍 -->
+    <section class="feedback-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2>为什么您的反馈很重要？</h2>
+                <p>我们重视每一位玩家的声音。您的反馈和建议是我们改进游戏体验、修复问题和添加新功能的重要依据。</p>
+                
+                <div class="feedback-types">
+                    <div class="feedback-type">
+                        <div class="type-icon">💡</div>
+                        <h3>功能建议</h3>
+                        <p>分享您希望在游戏中看到的新功能</p>
+                    </div>
+                    <div class="feedback-type">
+                        <div class="type-icon">🎮</div>
+                        <h3>游戏体验</h3>
+                        <p>告诉我们您的游戏体验和改进建议</p>
+                    </div>
+                    <div class="feedback-type">
+                        <div class="type-icon">⚖️</div>
+                        <h3>平衡性</h3>
+                        <p>关于武器、载具和游戏平衡的意见</p>
+                    </div>
+                    <div class="feedback-type">
+                        <div class="type-icon">🗺️</div>
+                        <h3>地图内容</h3>
+                        <p>对地图设计和内容的反馈</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 反馈表单 -->
+    <section class="feedback-form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <form class="feedback-form" id="feedbackForm" onsubmit="submitFeedback(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="playerName">游戏昵称</label>
+                            <input type="text" id="playerName" name="playerName" placeholder="您在游戏中的昵称">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱地址</label>
+                            <input type="email" id="email" name="email" placeholder="用于接收反馈回复">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="game">相关游戏 *</label>
+                            <select id="game" name="game" required>
+                                <option value="">选择游戏</option>
+                                <option value="bf2042">战地2042</option>
+                                <option value="bfv">战地5</option>
+                                <option value="bf1">战地1</option>
+                                <option value="bf4">战地4</option>
+                                <option value="general">通用反馈</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="feedbackType">反馈类型 *</label>
+                            <select id="feedbackType" name="feedbackType" required>
+                                <option value="">选择类型</option>
+                                <option value="feature">功能建议</option>
+                                <option value="gameplay">游戏体验</option>
+                                <option value="balance">平衡性</option>
+                                <option value="ui">界面设计</option>
+                                <option value="content">内容建议</option>
+                                <option value="performance">性能反馈</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">反馈标题 *</label>
+                        <input type="text" id="title" name="title" placeholder="用一句话概括您的反馈" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">详细描述 *</label>
+                        <textarea id="description" name="description" rows="6" placeholder="请详细描述您的反馈内容、建议或遇到的问题..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentBehavior">当前情况</label>
+                        <textarea id="currentBehavior" name="currentBehavior" rows="3" placeholder="描述当前的游戏情况或行为（如果适用）"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expectedBehavior">期望改进</label>
+                        <textarea id="expectedBehavior" name="expectedBehavior" rows="3" placeholder="描述您希望看到的改进或预期的行为"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="platform">游戏平台</label>
+                            <select id="platform" name="platform">
+                                <option value="">选择平台</option>
+                                <option value="pc">PC (Origin/Steam/Epic)</option>
+                                <option value="ps5">PlayStation 5</option>
+                                <option value="ps4">PlayStation 4</option>
+                                <option value="xbox-series">Xbox Series X/S</option>
+                                <option value="xbox-one">Xbox One</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">重要程度</label>
+                            <select id="priority" name="priority">
+                                <option value="low">较低</option>
+                                <option value="medium" selected>中等</option>
+                                <option value="high">较高</option>
+                                <option value="critical">非常重要</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group rating-group">
+                        <label>整体游戏满意度</label>
+                        <div class="rating-stars" id="satisfactionRating">
+                            <span class="star" data-rating="1">⭐</span>
+                            <span class="star" data-rating="2">⭐</span>
+                            <span class="star" data-rating="3">⭐</span>
+                            <span class="star" data-rating="4">⭐</span>
+                            <span class="star" data-rating="5">⭐</span>
+                        </div>
+                        <input type="hidden" id="satisfaction" name="satisfaction" value="0">
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="followUp" name="followUp">
+                            <span class="checkmark"></span>
+                            我希望开发团队就这个反馈与我联系
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="publicFeedback" name="publicFeedback">
+                            <span class="checkmark"></span>
+                            我同意这个反馈可以在社区中匿名分享
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="resetForm()">重置表单</button>
+                        <button type="submit" class="btn btn-primary">提交反馈</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 反馈统计 -->
+    <section class="feedback-stats">
+        <div class="container">
+            <h2 class="section-title">社区反馈统计</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15,247</div>
+                    <div class="stat-label">已收到反馈</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3,892</div>
+                    <div class="stat-label">已实现建议</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1,256</div>
+                    <div class="stat-label">本月新反馈</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">处理完成率</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 反馈状态查询 -->
+    <section class="feedback-status">
+        <div class="container">
+            <div class="status-card">
+                <h2>查询反馈状态</h2>
+                <p>如果您之前提交过反馈，可以通过反馈ID查询处理状态</p>
+                <div class="status-form">
+                    <input type="text" id="feedbackId" placeholder="输入反馈ID">
+                    <button type="button" class="btn btn-primary" onclick="checkFeedbackStatus()">查询状态</button>
+                </div>
+                <div class="status-result" id="statusResult" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>游戏</h3>
+                    <ul>
+                        <li><a href="games.html">战地2042</a></li>
+                        <li><a href="games.html">战地5</a></li>
+                        <li><a href="games.html">战地1</a></li>
+                        <li><a href="games.html">战地4</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>社区</h3>
+                    <ul>
+                        <li><a href="news.html">新闻</a></li>
+                        <li><a href="media.html">媒体</a></li>
+                        <li><a href="#" target="_blank">论坛</a></li>
+                        <li><a href="#" target="_blank">Reddit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>支持</h3>
+                    <ul>
+                        <li><a href="help.html">帮助中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="feedback.html">反馈</a></li>
+                        <li><a href="bug-report.html">Bug报告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Discord">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0001 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1568 2.4189Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Electronic Arts Inc. 保留所有权利。</p>
+                <div class="footer-links">
+                    <a href="#">隐私政策</a>
+                    <a href="#">服务条款</a>
+                    <a href="#">Cookie设置</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/security.js"></script>
+    <script src="js/feedback.js"></script>
+</body>
+</html> 

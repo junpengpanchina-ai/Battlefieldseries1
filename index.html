@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="战地系列官方网站 - 体验史诗级战争游戏">
+    <meta name="keywords" content="战地,Battlefield,FPS,射击游戏,EA">
+    <title>战地系列 - 官方网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="https://2776117bb412e09a1d30cbe886cd3935.r2.cloudflarestorage.com/battlefieldseries2042/ui/favicon.ico">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="https://2776117bb412e09a1d30cbe886cd3935.r2.cloudflarestorage.com/battlefieldseries2042/ui/logo.png" alt="Battlefield Logo" onerror="this.style.display='none'">
+                    <span class="nav-title">BATTLEFIELD</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link active">首页</a></li>
+                    <li class="nav-dropdown">
+                        <a href="games.html" class="nav-link">游戏 <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="games.html#bf2042" class="dropdown-link">战地2042</a></li>
+                            <li><a href="games.html#bfv" class="dropdown-link">战地5</a></li>
+                            <li><a href="games.html#bf1" class="dropdown-link">战地1</a></li>
+                            <li><a href="games.html#bf4" class="dropdown-link">战地4</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a href="games.html" class="dropdown-link">查看全部游戏</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="news.html" class="nav-link">新闻 <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="news.html?category=游戏更新" class="dropdown-link">游戏更新</a></li>
+                            <li><a href="news.html?category=开发日志" class="dropdown-link">开发日志</a></li>
+                            <li><a href="news.html?category=活动公告" class="dropdown-link">活动公告</a></li>
+                            <li><a href="news.html?category=电竞赛事" class="dropdown-link">电竞赛事</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a href="news.html" class="dropdown-link">所有新闻</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="media.html" class="nav-link">媒体 <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="media.html?type=screenshots" class="dropdown-link">游戏截图</a></li>
+                            <li><a href="media.html?type=videos" class="dropdown-link">游戏视频</a></li>
+                            <li><a href="media.html?type=wallpapers" class="dropdown-link">精美壁纸</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a href="media.html" class="dropdown-link">媒体中心</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">社区 <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="forum.html" class="dropdown-link">官方论坛</a></li>
+                            <li><a href="https://discord.gg/battlefield" target="_blank" class="dropdown-link">Discord</a></li>
+                            <li><a href="https://reddit.com/r/battlefield" target="_blank" class="dropdown-link">Reddit</a></li>
+                            <li><a href="https://twitter.com/battlefield" target="_blank" class="dropdown-link">Twitter</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a href="help.html" class="dropdown-link">帮助中心</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="admin/" class="nav-link admin-link">管理后台</a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="login.html" class="auth-link" id="loginLink">登录</a>
+                    <a href="register.html" class="auth-link" id="registerLink">注册</a>
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <span class="user-name" id="userName"></span>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="user-link">个人中心</a>
+                            <a href="#" class="user-link" onclick="Auth.logout()">退出登录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-video">
+                <img src="https://2776117bb412e09a1d30cbe886cd3935.r2.cloudflarestorage.com/battlefieldseries2042/backgrounds/hero-bg.jpg" alt="战地2042" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiBmaWxsPSIjMUExQTFBIi8+Cjx0ZXh0IHg9Ijk2MCIgeT0iNTQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRkY2QjM1IiBmb250LXNpemU9IjQ4IiBmb250LWZhbWlseT0iQXJpYWwiPuaImOWcsOS4u+imgeWbvueJhzwvdGV4dD4KPC9zdmc+'">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">战地系列</h1>
+            <p class="hero-subtitle">体验史诗级的全面战争</p>
+            <div class="hero-buttons">
+                <a href="games.html" class="btn btn-primary">探索游戏</a>
+                <a href="https://youtu.be/WomAGoEh-Ss" target="_blank" class="btn btn-secondary">观看预告</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>向下滚动</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- 游戏展示 -->
+    <section class="games-showcase">
+        <div class="container">
+            <h2 class="section-title">热门游戏</h2>
+            <div class="games-grid" id="gamesGrid">
+                <!-- 游戏卡片将通过JavaScript动态生成 -->
+            </div>
+            <div class="section-footer">
+                <a href="games.html" class="btn btn-outline">查看全部游戏</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新新闻 -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="section-title">最新资讯</h2>
+            <div class="news-grid" id="newsGrid">
+                <!-- 新闻卡片将通过JavaScript动态生成 -->
+            </div>
+            <div class="section-footer">
+                <a href="news.html" class="btn btn-outline">查看更多新闻</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 媒体预览 -->
+    <section class="media-preview">
+        <div class="container">
+            <h2 class="section-title">精彩瞬间</h2>
+            <div class="media-container">
+                <div class="media-featured">
+                    <div class="video-player" id="featuredVideo">
+                        <img src="https://2776117bb412e09a1d30cbe886cd3935.r2.cloudflarestorage.com/battlefieldseries2042/games/bf2042-screenshot-1.jpg" alt="Featured Media" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDgwMCA0NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDUwIiBmaWxsPSIjMkEyQTJBIi8+Cjx0ZXh0IHg9IjQwMCIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRkY2QjM1IiBmb250LXNpemU9IjI0IiBmb250LWZhbWlseT0iQXJpYWwiPuinhumikS9miKjlm74mbHQ7L3RleHQ+Cjwvc3ZnPg=='">
+                        <div class="play-button">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="rgba(255, 107, 53, 0.9)"/>
+                                <polygon points="24,18 24,42 42,30" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-thumbnails" id="mediaThumbnails">
+                    <!-- 缩略图将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="media.html" class="btn btn-outline">查看媒体中心</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>游戏</h3>
+                    <ul>
+                        <li><a href="games.html">战地2042</a></li>
+                        <li><a href="games.html">战地5</a></li>
+                        <li><a href="games.html">战地1</a></li>
+                        <li><a href="games.html">战地4</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>社区</h3>
+                    <ul>
+                        <li><a href="news.html">新闻</a></li>
+                        <li><a href="media.html">媒体</a></li>
+                        <li><a href="forum.html">论坛</a></li>
+                        <li><a href="https://reddit.com/r/battlefield" target="_blank">Reddit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>支持</h3>
+                    <ul>
+                        <li><a href="help.html">帮助中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="feedback.html">反馈</a></li>
+                        <li><a href="bug-report.html">Bug报告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="https://twitter.com/battlefield" target="_blank" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com/battlefield" target="_blank" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="https://discord.gg/battlefield" target="_blank" aria-label="Discord">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0001 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1568 2.4189Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Electronic Arts Inc. 保留所有权利。</p>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">隐私政策</a>
+                    <a href="terms-of-service.html">服务条款</a>
+                    <a href="cookie-settings.html">Cookie设置</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>加载中...</p>
+    </div>
+
+    <script src="js/image-manager.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

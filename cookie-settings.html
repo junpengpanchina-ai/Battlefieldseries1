@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie设置 - 战地系列</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/support.css">
+    <link rel="icon" href="images/ui/favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/ui/logo.png" alt="Battlefield Logo" onerror="this.style.display='none'">
+                    <span class="nav-title">BATTLEFIELD</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">首页</a></li>
+                    <li><a href="games.html" class="nav-link">游戏</a></li>
+                    <li><a href="news.html" class="nav-link">新闻</a></li>
+                    <li><a href="media.html" class="nav-link">媒体</a></li>
+                    <li><a href="#" class="nav-link">社区</a></li>
+                    <li><a href="admin/" class="nav-link admin-link">管理后台</a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="login.html" class="auth-link" id="loginLink">登录</a>
+                    <a href="register.html" class="auth-link" id="registerLink">注册</a>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Cookie设置</h1>
+            <p class="page-subtitle">管理您的Cookie偏好</p>
+        </div>
+    </section>
+
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <h2>Cookie类型</h2>
+                
+                <div style="margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3 style="margin: 0;">必要Cookie</h3>
+                        <label style="background: #ccc; padding: 4px 8px; border-radius: 12px; font-size: 12px;">必需</label>
+                    </div>
+                    <p style="margin: 0; color: #666;">这些Cookie是网站正常运行所必需的，无法禁用。</p>
+                </div>
+                
+                <div style="margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3 style="margin: 0;">分析Cookie</h3>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p style="margin: 0; color: #666;">帮助我们了解访问者如何使用网站，以改进用户体验。</p>
+                </div>
+                
+                <div style="margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3 style="margin: 0;">广告Cookie</h3>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p style="margin: 0; color: #666;">用于显示个性化广告和衡量广告效果。</p>
+                </div>
+                
+                <div style="margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3 style="margin: 0;">功能Cookie</h3>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p style="margin: 0; color: #666;">记住您的偏好设置，提供个性化功能。</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="btn btn-primary" onclick="saveCookieSettings()">保存设置</button>
+                    <button class="btn btn-outline" onclick="acceptAllCookies()">接受全部</button>
+                </div>
+                
+                <p style="margin-top: 40px; color: #666; font-size: 0.9rem;">
+                    您可以随时更改这些设置。有关更多信息，请查看我们的 <a href="privacy-policy.html">隐私政策</a>。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>支持</h3>
+                    <ul>
+                        <li><a href="help.html">帮助中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="feedback.html">反馈</a></li>
+                        <li><a href="bug-report.html">Bug报告</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Electronic Arts Inc. 保留所有权利。</p>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">隐私政策</a>
+                    <a href="terms-of-service.html">服务条款</a>
+                    <a href="cookie-settings.html">Cookie设置</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/security.js"></script>
+    <script>
+        function saveCookieSettings() {
+            alert('Cookie设置已保存');
+        }
+        
+        function acceptAllCookies() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+            alert('已接受所有Cookie');
+        }
+    </script>
+</body>
+</html> 
